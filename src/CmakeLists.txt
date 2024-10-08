@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.30.4)
+
+add_executable(Puzzle main.cpp ${MY_INCLUDE_DIR}/MainWindow.h MainWindow.cpp
+                ${MY_INCLUDE_DIR}/Board.h Board.cpp ${MY_INCLUDE_DIR}/PuzzlePiece.h 
+                PuzzlePiece.cpp)
+target_include_directories(Puzzle PUBLIC ${MY_INCLUDE_DIR})
