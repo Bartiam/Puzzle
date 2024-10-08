@@ -6,6 +6,7 @@
 #include "PuzzlePiece.h"
 #include "QRandomGenerator"
 #include "deque"
+#include "iostream"
 
 class Board : public QWidget
 {
@@ -18,9 +19,8 @@ private:
     // Private variables
     const qint8 countOfButtons = 15;
     QGridLayout* gridLayout;
-    std::deque<PuzzlePiece*> buttons;
 
     // Private functions
     void AddButtonsToWidget();
-    bool CheckButtonText(const qint8 randomValue);
+    bool CheckEqualTextButton(const qint8& randomValue);
 };

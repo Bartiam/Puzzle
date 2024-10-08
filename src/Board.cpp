@@ -6,6 +6,7 @@ Board::Board(QWidget *parent) : QWidget::QWidget(parent)
     gridLayout->setHorizontalSpacing(3);
     gridLayout->setVerticalSpacing(3);
     setLayout(gridLayout);
+    
     AddButtonsToWidget();
 }
 
@@ -18,15 +19,16 @@ void Board::AddButtonsToWidget()
     {
         qint8 randomValue = QRandomGenerator::global()->generate() % 15 + 1;
         PuzzlePiece* button = new PuzzlePiece(QString::number(randomValue));
+        button->setObjectName(QString::number(randomValue));
         
-        if (CheckButtonText(randomValue))
+        if (CheckEqualTextButton(randomValue))
         {
             --index;
             delete button;
             continue;
         }
-        
-        buttons.push_back(button);
+
+        button->setParent(this);
 
         gridLayout->addWidget(button, row, col);
         ++col;
@@ -38,14 +40,12 @@ void Board::AddButtonsToWidget()
     }
 }
 
-bool Board::CheckButtonText(const qint8 randomValue)
+bool Board::CheckEqualTextButton(const qint8& randomValue)
 {
-    for (qint8 i = 0; i < buttons.size(); ++i)
-    {
-        if (buttons[i]->text().toInt() == randomValue)
-        {
-            return true;
-        }
-    }
+    auto tempButton = findChild<QPushButton*>(QString::number(randomValue));
+
+    if (tempButton)
+        return true;
+
     return false;
 }
