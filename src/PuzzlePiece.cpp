@@ -1,4 +1,4 @@
-#include "PuzzlePiece.h"
+﻿#include "PuzzlePiece.h"
 
 PuzzlePiece::PuzzlePiece(const QString &text, QWidget *parent)
  : QPushButton::QPushButton(text, parent)
@@ -7,4 +7,9 @@ PuzzlePiece::PuzzlePiece(const QString &text, QWidget *parent)
     setSizePolicy(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Expanding);
     setStyleSheet(QString("background-color: gray; color: blue;"));
     setFont(font);
+}
+
+void PuzzlePiece::SetSound(bool bIsWrong)
+{
+    std::cout << "Result: " << bIsWrong << std::endl;
 }

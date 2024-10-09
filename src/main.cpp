@@ -1,4 +1,4 @@
-#include "QApplication"
+﻿#include "QApplication"
 #include "MainWindow.h"
 #include "QLabel"
 
