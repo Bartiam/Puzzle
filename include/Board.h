@@ -5,6 +5,7 @@
 #include "PuzzlePiece.h"
 #include "QRandomGenerator"
 
+// Структура для работы метода перемещения виджетов.
 struct PositionStruct
 {
 public:
@@ -25,15 +26,13 @@ public:
     Board(QWidget* parent = nullptr);
 
 private:
-    // Приватные переменные
-    const qint8 countOfButtons = 15;
+    const qint8 countOfButtons = 16;
     QGridLayout* gridLayout;
     QWidget* hiddenWidget;
 
-    // Приватные функции
     void AddButtonsToWidget();
     bool CheckEqualTextButton(const qint8& randomValue);
 private slots:
-    // Первый способ перемещения виджетов при нажатии
+    // Перемещение виджетов.
     void SwapWidgets();
 };

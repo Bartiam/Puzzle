@@ -10,6 +10,6 @@ class PuzzlePiece : public QPushButton
 
 public:
     PuzzlePiece(const QString &text, QWidget* parent = nullptr);
-    //
+    
     void SetSound(bool bIsWrong);
 };
